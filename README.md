@@ -4,7 +4,10 @@ An AI-powered object detection system designed for real-time performance in Valo
 ## 📂 Project Structure
 ```text
 ├── video_inference_output.py      # Run detection on uploaded video and saves annotated video
-├── realtime_inference.py          # Live detection on screen (centered region)
+├── realtime_inference.py          # Live detection on external screen (centered region)
+├── realtime_inference_overlay.py  # Live detection overlay
+├── aimassist.py                   # Calculates target offset and sends data to Arduino
+├── arduino.cpp                    # Receives serial input and moves mouse via Arduino HID
 ├── data.yaml                      # YOLOv8 dataset config
 ├── README.md                      # This file
 ├── /runs                          # YOLO training results (model weights)
@@ -81,6 +84,12 @@ python video_inference_output.py --video path/to/your_clip.mp4
 python realtime_inference.py
 ```
 → Uses screen capture on the center of your monitor
+
+🎯 Aim Assist Mode
+```text
+python aimassist.py
+```
+→ Reads YOLO detections, calculates offset, and sends serial data to arduino.cpp
 
 ## 🚨 Disclaimer
 This tool is strictly for educational and offline use.
