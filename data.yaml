@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['enemy', 'enemy_head', 'teammate']
+
+roboflow:
+  workspace: project-szsld
+  project: valorant-ai-g97ln
+  version: 12
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/project-szsld/valorant-ai-g97ln/dataset/12
