@@ -27,12 +27,29 @@ PyQt5 (for overlay)
 Arduino (Leonardo/Micro or other HID-compatible boards
 
 ## ⚙️ Setup
-Install dependencies
+Optional: Use a Virtual Environment (Recommended)
+Using a Python virtual environment keeps your dependencies scoped to just this project — so it doesn't affect (or get affected by) other Python setups on your system.
+### 📦 To set it up:
+```text
+# Create a virtual environment named 'venv'
+python -m venv venv
+
+# Activate it (Windows)
+venv\Scripts\activate
+
+# Activate it (Mac/Linux)
+source venv/bin/activate
+```
+After activation, install all packages as usual with pip.
+
+Once you're done working, type deactivate to exit the virtual environment.
+
+### Install dependencies
 ```text
 pip install ultralytics opencv-python pyautogui pygetwindow pyqt5 mss
 ``` 
 
-Make sure your model path is set correctly
+### Make sure your model path is set correctly
 In your scripts:
 ```text
 model = YOLO("C:/Users/Admin/ultralytics/runs/detect/train/weights/best.pt")
