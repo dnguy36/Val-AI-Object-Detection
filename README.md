@@ -11,7 +11,6 @@ An AI-powered object detection system designed for real-time performance in Valo
 ├── data.yaml                      # YOLOv8 dataset config
 ├── README.md                      # This file
 ├── /runs                          # YOLO training results (model weights)
-└── /videos                        # Your input videos
 ``` 
 
 ## 🛠️ Technologies
@@ -21,13 +20,11 @@ YOLOv8 (Ultralytics)
 
 OpenCV
 
-PyAutoGUI
-
-MSS (for screen capture, optional)
+PyAutoGUI/MSS
 
 PyQt5 (for overlay)
 
-Win32 API (optional overlay tricks)
+Arduino (Leonardo/Micro or other HID-compatible boards
 
 ## ⚙️ Setup
 Install dependencies
@@ -42,30 +39,52 @@ model = YOLO("C:/Users/Admin/ultralytics/runs/detect/train/weights/best.pt")
 ```
 
 ## 🧪 Training Instructions
-Prepare your dataset
-Make sure your dataset is in the following structure:
+### Capture your own dataset
+
+Take screenshots or screen recordings of Valorant enemies
+
+Extract frames or crop individual examples manually
+
+### Label the images
+
+Use LabelImg or Roboflow Annotate
+
+Save labels in YOLO format (each .jpg or .png should have a corresponding .txt)
+
+### Organize your dataset into folders
 ```text
 /dataset
-├── images
-│   ├── train
-│   └── val
-├── labels
-│   ├── train
-│   └── val
-└── data.yaml
+├── train
+│   ├── image1.jpg
+│   ├── image1.txt
+│   └── ...
+├── val
+│   ├── image2.jpg
+│   ├── image2.txt
+│   └── ...
+├── test         # (optional) run post-training predictions on this set
+│   ├── image3.jpg
+│   ├── image3.txt
+│   └── ...
+└── data.yamltext
 ```
-Check your data.yaml file
+Each image should have a corresponding .txt file with YOLO labels
+
+You can optionally add a test folder for future evaluation (not used during training by default)
+
+### Create your data.yaml file
 ```text
 train: dataset/images/train
 val: dataset/images/val
 nc: 1  # number of classes
 names: ['enemy']  # replace with your class names
 ```
-Train with YOLOv8
+### Train with YOLOv8
 ```text
 pip install ultralytics
 yolo task=detect mode=train model=yolov8n.pt data=dataset/data.yaml epochs=50 imgsz=640
 ```
+
 After training completes, your best model will be saved to:
 ```text
 runs/detect/train/weights/best.pt
