@@ -74,10 +74,12 @@ You can optionally add a test folder for future evaluation (not used during trai
 
 ### Create your data.yaml file
 ```text
-train: dataset/images/train
-val: dataset/images/val
-nc: 1  # number of classes
-names: ['enemy']  # replace with your class names
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3 # number of classes
+names: ['enemy', 'enemy_head', 'teammate']
 ```
 ### Train with YOLOv8
 ```text
