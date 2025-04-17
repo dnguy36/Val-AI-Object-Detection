@@ -3,8 +3,7 @@ An AI-powered object detection system designed for real-time performance in Valo
 
 ## 📂 Project Structure
 ```text
-├── video_inference.py             # Run detection on uploaded video
-├── video_inference_output.py      # Same as above, but saves annotated video
+├── video_inference_output.py      # Run detection on uploaded video and saves annotated video
 ├── realtime_inference.py          # Live detection on screen (centered region)
 ├── data.yaml                      # YOLOv8 dataset config
 ├── README.md                      # This file
